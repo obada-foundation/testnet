@@ -1,0 +1,17 @@
+---
+
+- hosts: node
+  roles:
+    - docker
+    - node
+
+  vars_prompt:
+    - name: "version"
+      prompt: "Which network version do you want to deploy?\n1- Testnet-1"
+      private: no
+
+
+# Configure server
+# Install and configure firewall
+# install docker
+# deploy node
