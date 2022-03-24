@@ -1,0 +1,28 @@
+---
+
+- name: Add SSH public key.
+  ansible.posix.authorized_key:
+    user: node
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+
+- name: Configure Node.
+  block:
+
+    - name: Create Node folder.
+      file:
+        path: "/home/node/.cored/{{ item }}"
+        state: directory
+      with_items:
+        - config
+        - data
+
+    - name: Copy config files.
+      copy:
+        src:  "{{ lookup('file', lookup('env','HOME') + '/testnets/testnet-' + '/' + item) }}"
+        dest: "/home/node/.cored/config"
+      with_items:
+        - genesis.json
+      
+  become_user: node
+  become: yes
