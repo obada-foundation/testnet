@@ -19,10 +19,26 @@
 
     - name: Copy config files.
       copy:
-        src:  "{{ lookup('file', lookup('env','HOME') + '/testnets/testnet-' + '/' + item) }}"
+        src:  "{{ lookup('env','HOME') + '/testnets/testnet-' + obada_testnet_version  +  '/' + item }}"
         dest: "/home/node/.cored/config"
       with_items:
         - genesis.json
+
+    - name: Copy docker-compose file.
+      template:
+        src: "docker-compose.yml.j2"
+        dest: "/home/node/docker-compose.yml"
+
+    - name: Running docker-compose.
+      community.docker.docker_compose:
+        project_src: .
+        recreate: always
+
+    - name: Add persistent peers.
+      replace: 
+        path: /home/node/.cored/config/config.toml
+        regexp: '(^persistent_peers\s=\s)(".*")$'
+        replace: '\1"4f31e487f02be47bb2dab0c49a97f90739e0e7f5@52.206.218.105:26656"'
       
   become_user: node
   become: yes

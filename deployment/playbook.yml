@@ -11,6 +11,7 @@
       - node
     pip_install_packages:
       - name: docker
+      - name: docker-compose
 
   vars_prompt:
     - name: "obada_testnet_version"
