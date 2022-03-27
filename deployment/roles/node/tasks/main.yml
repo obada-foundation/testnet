@@ -38,7 +38,24 @@
       replace: 
         path: /home/node/.cored/config/config.toml
         regexp: '(^persistent_peers\s=\s)(".*")$'
+        # TODO: fetch IPs from DNS TXT record
         replace: '\1"4f31e487f02be47bb2dab0c49a97f90739e0e7f5@52.206.218.105:26656"'
+
+    - name: Restart a Node
+      community.docker.docker_container:
+        name: node
+        state: started
+        restart: yes
+
+    - name: Catch Node status.
+      community.docker.docker_container_exec:
+        container: node
+        command: /bin/sh -c "sleep 5 && ./fullcored status"
+      register: node_status
+
+    - name: Print Node status.
+      debug:
+        msg: "If you want your node to be included into persistent peers of the network, please send {{ (node_status.stdout | from_json).NodeInfo.id }}@{{ ansible_ssh_host }}:26656 to techops@obada.io"
       
   become_user: node
   become: yes
