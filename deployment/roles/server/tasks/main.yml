@@ -1,0 +1,6 @@
+---
+
+- name: Update apt packages
+  apt:
+    update_cache: true
+    force: true
