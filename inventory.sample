@@ -1,0 +1,13 @@
+[node]
+# Replace with real IP address of server that you want to deploy node
+127.0.0.1
+
+[node:vars]
+ansible_ssh_user=
+ansible_ssh_port=
+ansible_ssh_private_key_file=
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+# Change it to "no" if you going to deploy from the root user
+should_become=yes

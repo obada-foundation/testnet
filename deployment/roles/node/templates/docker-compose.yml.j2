@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  node:
+    image: obada/fullcore:develop
+    container_name: node
+    restart: always
+    user: "{{ uid }}:{{ gid }}" 
+    volumes:
+      - ./.cored:/home/obada/.cored:Z
+    command: fullcored start --home /home/obada/.cored
+    ports:
+      - "26656-26657:26656-26657"
+      - "1317:1317"
+      - "9090:9090"
+      - "2345:2345"
