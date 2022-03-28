@@ -2,9 +2,9 @@
 
 - hosts: node
   roles:
-    - server
-    - geerlingguy.pip
-    - geerlingguy.docker
+    - { role: server, become: "{{ should_become  }}" }
+    - { role: geerlingguy.pip, become: "{{ should_become }}" }
+    - { role: geerlingguy.docker, become: "{{ should_become }}" }
     - node
 
   vars:

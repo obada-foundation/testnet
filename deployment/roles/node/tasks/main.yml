@@ -5,6 +5,7 @@
     user: node
     state: present
     key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+  become: "{{ should_become }}"
 
 - name: Configure Node.
   block:
@@ -24,14 +25,26 @@
       with_items:
         - genesis.json
 
+    - shell: id -u
+      register: remote_uid
+
+    - shell: id -g
+      register: remote_gid
+
+    - name: Setting remote uid and gid
+      set_fact:
+        uid: "{{ remote_uid.stdout }}"
+        gid: "{{ remote_gid.stdout }}"
+
     - name: Copy docker-compose file.
       template:
         src: "docker-compose.yml.j2"
         dest: "/home/node/docker-compose.yml"
+        mode: 0600
 
     - name: Running docker-compose.
       community.docker.docker_compose:
-        project_src: .
+        project_src: "/home/node"
         recreate: always
 
     - name: Add persistent peers.
@@ -41,7 +54,7 @@
         # TODO: fetch IPs from DNS TXT record
         replace: '\1"4f31e487f02be47bb2dab0c49a97f90739e0e7f5@52.206.218.105:26656"'
 
-    - name: Restart a Node
+    - name: Restart a Node.
       community.docker.docker_container:
         name: node
         state: started
@@ -50,7 +63,7 @@
     - name: Catch Node status.
       community.docker.docker_container_exec:
         container: node
-        command: /bin/sh -c "sleep 5 && ./fullcored status"
+        command: /bin/sh -c "sleep 5 && ./fullcored status --home /home/obada/.cored"
       register: node_status
 
     - name: Print Node status.

@@ -5,6 +5,7 @@ services:
     image: obada/fullcore:develop
     container_name: node
     restart: always
+    user: "{{ uid }}:{{ gid }}" 
     volumes:
       - ./.cored:/home/obada/.cored:Z
     command: fullcored start --home /home/obada/.cored

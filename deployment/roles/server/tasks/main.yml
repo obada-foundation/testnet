@@ -1,6 +1,11 @@
 ---
 
-- name: Update apt packages
+- name: Update apt-cache.
   apt:
     update_cache: true
     force: true
+
+- name: Install nesessary packages.
+  apt:
+    name: acl
+    state: present
