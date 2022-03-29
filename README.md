@@ -22,6 +22,8 @@ Installation script assumes that you use **Ubuntu 20.04** for **Node**. Please c
 sudo apt install docker.io make -y
 ```
 
+If you have not **Debian** based distribution you need to find a way to install such dependencies on your own.
+
 ### Clone the repo
 
 ```bash
