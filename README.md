@@ -38,7 +38,7 @@ After success certificate generation add **./ssh/obada_node_ssh_key.pub** to the
 
 - [DigitalOcean](https://docs.digitalocean.com/products/droplets/how-to/add-ssh-keys/to-account/)
 - [AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
-- You can also do this manullay by looking [this](https://linuxhandbook.com/add-ssh-public-key-to-server/) tutorial 
+- You can also do this manullay by looking into [this](https://linuxhandbook.com/add-ssh-public-key-to-server/) tutorial 
 
 ### Deploy Node
 
@@ -49,6 +49,6 @@ make deploy
 The deployment may take some time and in case of success installation you should see a message like: 
 ```bash
 ok: [46.101.115.172] => {
-    "msg": "If you want your node to be included into persistent peers of the network, please send 370d82b7d013f7a0f3a6815196f871cd55367770@46.101.115.172:26656 to techops@obada.io"
+    "msg": "The Node installation was completed. If you want your Node to be included into persistent peers of the network, please send 370d82b7d013f7a0f3a6815196f871cd55367770@46.101.115.172:26656 to techops@obada.io"
 }
 ```
