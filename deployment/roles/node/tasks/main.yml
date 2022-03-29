@@ -4,7 +4,7 @@
   ansible.posix.authorized_key:
     user: node
     state: present
-    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/obada_node_ssh_key.pub') }}"
   become: "{{ should_become }}"
 
 - name: Configure Node.
