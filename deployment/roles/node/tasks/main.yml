@@ -4,7 +4,7 @@
   ansible.posix.authorized_key:
     user: node
     state: present
-    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/obada_node_ssh_key.pub') }}"
   become: "{{ should_become }}"
 
 - name: Configure Node.
@@ -68,7 +68,7 @@
 
     - name: Print Node status.
       debug:
-        msg: "If you want your node to be included into persistent peers of the network, please send {{ (node_status.stdout | from_json).NodeInfo.id }}@{{ ansible_ssh_host }}:26656 to techops@obada.io"
+        msg: "The Node installation was completed. If you want your node to be included into persistent peers of the network, please send {{ (node_status.stdout | from_json).NodeInfo.id }}@{{ ansible_ssh_host }}:26656 to techops@obada.io"
       
   become_user: node
   become: yes
