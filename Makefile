@@ -19,4 +19,4 @@ ssh/obada_node_ssh_key:
 		--rm \
                 -v $$(pwd)/ssh:/root/.ssh \
 		alpine:3.15 \
-		sh -c 'apk add openssh && ssh-keygen -t ed25519 -f $$HOME/.ssh/obada_node_ssh_key -q -N ""'
+		sh -c 'apk add openssh && ssh-keygen -t ed25519 -f $$HOME/.ssh/obada_node_ssh_key -q -N "" && chown 1000:1000 obada_node_ssh_key'
