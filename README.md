@@ -14,7 +14,7 @@
 
 ## Installation & deploying OBADA Node
 
-Installation script assumes that you use **Ubuntu 20.04** for **Node**. The deployment script can be executed from any machine that can run docker, shell and makefiles. Please check [this video]() if you need more installation details.
+Installation script assumes that you use **Ubuntu 20.04** for **Node**. The deployment script can be executed from any machine that can run docker, shell and makefiles. Please check [this video](https://drive.google.com/file/d/1SczfTTY3blGGh-48BafwRX1UqJS6G-1R/view?usp=sharing) if you need more installation details.
 
 ### Install required packages
 
@@ -55,7 +55,7 @@ After the success certificate generation, add **./ssh/obada_node_ssh_key.pub** t
 ```bash
 cp inventory.sample inventory
 ```
-If you are not familiar with **Ansible** inventory files and didn't watch the installation [video](), please check it.
+If you are not familiar with **Ansible** inventory files and didn't watch the installation [video](https://drive.google.com/file/d/1SczfTTY3blGGh-48BafwRX1UqJS6G-1R/view?usp=sharing), please check it.
 
 ### Deploy Node
 
