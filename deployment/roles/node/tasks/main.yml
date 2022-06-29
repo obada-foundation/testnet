@@ -47,12 +47,16 @@
         project_src: "/home/node"
         recreate: always
 
+    - name: Fetch active persistent peers for alphanet
+      set_fact:
+        peers: "{{ lookup('community.general.dig', 'nodes.alpha.obada.io.', 'qtype=TXT')|replace(' ',',') }}"
+      when: obada_testnet_version == "1"
+
     - name: Add persistent peers.
       replace: 
         path: /home/node/.cored/config/config.toml
         regexp: '(^persistent_peers\s=\s)(".*")$'
-        # TODO: fetch IPs from DNS TXT record
-        replace: '\1"4f31e487f02be47bb2dab0c49a97f90739e0e7f5@52.206.218.105:26656"'
+        replace: '\1"{{ peers }}"'
 
     - name: Restart a Node.
       community.docker.docker_container:
