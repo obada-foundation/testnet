@@ -72,8 +72,8 @@ ok: [46.101.115.172] => {
 ## Node ports
 | Port  | Purpose |
 | ------------- | ------------- |
-| 26656  | Used for p2p network synchronization  |
-| 26657  | Consensus (Tendermint) RPC endpoint  |
-| 1317  | Node REST server  |
-| 9090  | Node gRPC server   |
+| 26656  | Used for p2p network synchronization. Must be always open.  |
+| 26657  | Consensus (Tendermint) RPC endpoint. Should be closed for not trusted connections. |
+| 1317  | Node REST server. Should be closed for not trusted connections. |
+| 9090  | Node gRPC server. Should be closed for not trusted connections. |
 
