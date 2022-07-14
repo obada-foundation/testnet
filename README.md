@@ -69,3 +69,11 @@ ok: [46.101.115.172] => {
 }
 ```
 
+## Node ports
+| Port  | Purpose |
+| ------------- | ------------- |
+| 26656  | Used for p2p network synchronization  |
+| 26657  | Consensus (Tendermint) RPC endpoint  |
+| 1317  | Node REST server  |
+| 9090  | Node gRPC server   |
+
