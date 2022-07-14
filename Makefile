@@ -4,12 +4,22 @@ deploy:
 	docker run \
 		-it \
 		--rm \
+		-w /home/ansible/deployment \
 		-v $$(pwd)/ssh:/home/ansible/.ssh \
 		-v $$(pwd)/deployment:/home/ansible/deployment \
 		-v $$(pwd)/inventory:/home/ansible/inventory \
 		-v $$(pwd)/testnets:/home/ansible/testnets \
 		obada/ansible \
-		ansible-playbook deployment/playbook.yml -i inventory
+		ansible-playbook node-playbook.yml -i inventory
+
+configure:
+	docker run \
+		-it \
+		--rm \
+		-w /home/ansible/deployment \
+		-v $$(pwd)/deployment:/home/ansible/deployment \
+		obada/ansible \
+		ansible-playbook configure-node.yml --inventory localhost --connection=local --limit 127.0.0.1
 
 certificates: ssh/obada_node_ssh_key
 

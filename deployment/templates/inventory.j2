@@ -1,0 +1,12 @@
+[node]
+{{ ssh_ip }}
+
+[node:vars]
+ansible_ssh_user={{ ssh_user }}
+ansible_ssh_port={{ ssh_port }}
+ansible_ssh_private_key_file={{ ssh_key }}
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+# Change it to "no" if you going to deploy from the root user
+should_become={{ should_become }}

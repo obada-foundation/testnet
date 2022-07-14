@@ -19,6 +19,7 @@
       prompt: "Which network version do you want to deploy?\n1- Testnet-1"
       private: no
       default: "1"
+      
 
 # Configure server
 # Install and configure firewall

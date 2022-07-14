@@ -1,0 +1,35 @@
+---
+- name: "Creating inventory file to deploy OBADA Node"
+  hosts: localhost
+  connection: local
+
+  vars_prompt:
+    - name: "ssh_ip"
+      prompt: "SSH IP Address"
+      private: no
+
+    - name: "ssh_user"
+      prompt: "SSH User"
+      private: no
+
+    - name: "ssh_port"
+      prompt: "SSH Port"
+      private: no
+      default: 22
+
+    - name: "ssh_key"
+      prompt: "SSH Key Path"
+      private: no
+      default: "~/.ssh/obada_node_ssh_key"
+
+    - name: "should_become"
+      prompt: "Sudo? (change it to \"no\" if you going to deploy from the root user)"
+      private: no
+      default: "yes"
+
+  tasks:
+    - name: Generate inventory file
+      template:
+        src: "inventory.j2"
+        dest: "/home/ansible/deployment/inventory"
+        mode: 0600
