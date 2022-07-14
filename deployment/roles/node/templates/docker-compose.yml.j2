@@ -8,6 +8,10 @@ services:
     user: "{{ uid }}:{{ gid }}" 
     volumes:
       - ./.cored:/home/obada/.cored:Z
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
     command: fullcored start --home /home/obada/.cored
     ports:
       - "26656-26657:26656-26657"
