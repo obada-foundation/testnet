@@ -50,12 +50,11 @@ After the success certificate generation, add **./ssh/obada_node_ssh_key.pub** t
 - [AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
 - You can also do this manually by looking into [this](https://linuxhandbook.com/add-ssh-public-key-to-server/) tutorial
 
-### Add configuration variables for **inventory** file
+### Generate **/deployment/inventory** file
 
 ```bash
-cp inventory.sample inventory
+make configure
 ```
-If you are not familiar with **Ansible** inventory files and didn't watch the installation [video](https://drive.google.com/file/d/1X-FfPmMXaWWa-8Zbltk9y78RAK5Aqrrx/view?usp=sharing), please check it.
 
 ### Deploy Node
 
