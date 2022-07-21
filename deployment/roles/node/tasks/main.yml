@@ -46,6 +46,7 @@
       community.docker.docker_compose:
         project_src: "/home/node"
         recreate: always
+        pull: yes
 
     - name: Fetch active persistent peers for alphanet
       set_fact:
