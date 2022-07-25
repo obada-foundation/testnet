@@ -14,7 +14,7 @@
 
 ## Installation & deploying OBADA Node
 
-Installation script assumes that you use **Ubuntu 20.04** for **Node**. The deployment script can be executed from any machine that can run docker, shell and makefiles. Please check [this video](https://drive.google.com/file/d/1X-FfPmMXaWWa-8Zbltk9y78RAK5Aqrrx/view?usp=sharing) if you need more installation details.
+Installation script assumes that you use **Ubuntu 20.04** for **Node**. The deployment script can be executed from any machine that can run docker, shell and makefiles. Please check [this video](https://youtu.be/is1h_RDG0C8) if you need more installation details.
 
 ### Install required packages
 
