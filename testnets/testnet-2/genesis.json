@@ -54,24 +54,20 @@
                "base":"rohi",
                "denom_units":[
                   {
-                     "aliases":[
-                        
-                     ],
+                     "aliases":[],
                      "denom":"rohi",
                      "exponent":0
                   },
                   {
-                     "aliases":[
-                        
-                     ],
+                     "aliases":[],
                      "denom":"obd",
                      "exponent":6
                   }
                ],
                "description":"OBADA fungible token",
                "display":"obd",
-               "name":"",
-               "symbol":""
+               "name":"rohi",
+               "symbol":"ROHI"
             }
          ]
       },
