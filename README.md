@@ -1,12 +1,27 @@
 # Adding validators to the network
 
-## Download binary and make sure that it is included into $PATH variable.
+## Download [binary](https://github.com/obada-foundation/fullcore/releases/download/latest/fullcored_latest_linux_amd64) or build from source code (better option). Make sure that it is included into $PATH variable.
+
+### Install precompiled binary
+
+```sh
+wget https://github.com/obada-foundation/fullcore/releases/download/latest/fullcored_latest_linux_amd64 -O /usr/bin/fullcored
+```
+
+### Install from sources (Go compiler version 1.18 or more needed)
+
+```sh
+git clone https://github.com/obada-foundation/fullcore
+cd fullcore/cmd/fullcored
+go build .
+cp fullcored /usr/bin/fullcored
+```
 
 ## Initialize variables
 
 Add variables to your `*.bashrc*` file or create variables in a shell session.
 
-```
+```sh
 NODE_NAME=val-wdpi
 ACCOUNT_NAME=val-wdpi
 ```
