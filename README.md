@@ -6,6 +6,7 @@
 
 ```sh
 wget https://github.com/obada-foundation/fullcore/releases/download/latest/fullcored_latest_linux_amd64 -O /usr/bin/fullcored
+chmod +x /usr/bin/fullcored
 ```
 
 ### Install from sources (Go compiler version 1.18 or more needed)
