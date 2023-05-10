@@ -1,3 +1,53 @@
+# Adding validators to the network
+
+## Download binary and make sure that it is included into $PATH variable.
+
+## Initialize variables
+
+Add variables to your `*.bashrc*` file or create variables in a shell session.
+
+```
+NODE_NAME=val-wdpi
+ACCOUNT_NAME=val-wdpi
+```
+
+For consistency we use the same name just for identifying validator account. Please use prefix val, like `val-thinkdynamic` or `val-tradeloop`.
+
+## Initialize configuration files
+
+```sh
+fullcored init $NODE_NAME --chain-id obada-testnet
+```
+
+### Where "obada-testnet" OBADA chain ID, we are still running testnet, please do not change this value.
+
+## Create OBADA account
+
+```sh
+fullcored keys --keyring-backend test --keyring-dir ~/.fullcore/keys add $ACCOUNT_NAME
+```
+
+## Replace genesis.json file with OBADA version
+
+```sh
+wget https://raw.githubusercontent.com/obada-foundation/testnet/main/testnets/testnet-2/genesis.json -O ~/.fullcore/config/genesis.json
+```
+
+### Where "testnet-2" is a version of genesis file.
+
+## Generate the initial balance
+
+```sh
+ADDRESS=$(fullcored keys --keyring-backend test --keyring-dir ~/.fullcore/keys show $ACCOUNT_NAME --address)
+
+# Show account address
+echo $ADDRESS
+
+fullcored add-genesis-account $ADDRESS 1000000000000000000rohi
+```
+
+After this step, copy your local genesis file from `~/.fullcore/config/genesis.json` and send to `techops@obada.io` with title `"Genesis account: YOUR ORG NAME"` and wait for further instructions.
+
 # Deploying a Node to the OBADA testnet
 
 ## Node minimum server requirements for the testnet
