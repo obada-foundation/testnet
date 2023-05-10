@@ -20,7 +20,7 @@ cp fullcored /usr/bin/fullcored
 
 ## Initialize variables
 
-Add variables to your `*.bashrc*` file or create variables in a shell session.
+Add variables to your `.bashrc` file or create variables in a shell session.
 
 ```sh
 NODE_NAME=val-wdpi
