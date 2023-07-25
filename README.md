@@ -73,7 +73,7 @@ After this step, copy your local genesis file from `~/.fullcore/config/genesis.j
 - Storage space required to persist blockchain state and snapshots (`512GB+` recommended)
 - Minimum `32GB+` of the **free** storage space available at all times (make sure that you have configured thresholds)
 - Disposable cloud instance or VM
-- Ubuntu `20.04 LTS` installed on the **host** instance or VM
+- Ubuntu `22.04 LTS` installed on the **host** instance or VM
 - Stable internet connection with minimum `10 Mbps` Up/Dn speed
 - Static IP address or dynamic DNS
 - Access to router or otherwise your local network configuration
